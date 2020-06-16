@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PointDataAccess.PointPayment>
+
+@{
+    ViewBag.Title = "Payments";
+}
+
+<h2>Payments</h2>
+
+<p>
+    @Html.ActionLink("Add New Payment", "AddStudentPayment")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepositDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberofDaysLate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPayable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeeID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepositDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberofDaysLate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPayable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeeID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.PaymentID  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.PaymentID  })
+        </td>
+    </tr>
+}
+
+</table>

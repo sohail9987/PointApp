@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PointDataAccess.Driver>
+
+@{
+    ViewBag.Title = "All Driver";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add New Driver", "AddDriver")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CNIC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNIC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.CNIC  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.CNIC  })
+        </td>
+    </tr>
+}
+
+</table>

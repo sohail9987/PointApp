@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PointDataAccess.StudentPoint>
+
+@{
+    ViewBag.Title = "All Registered Students";
+}
+
+<h2>All Registered Students</h2>
+
+<p>
+    @Html.ActionLink("Add New Student", "AddStudentPoint")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemesterID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PickUpAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SemesterID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentPointId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentPointId })
+        </td>
+    </tr>
+}
+
+</table>

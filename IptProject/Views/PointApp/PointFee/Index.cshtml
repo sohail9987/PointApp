@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PointDataAccess.PointFee>
+
+@{
+    ViewBag.Title = "ADD FEE";
+}
+
+<h2>Add Fee</h2>
+
+<p>
+    @Html.ActionLink("Add Fee", "AddFee")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransportFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FineCharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemesterID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransportFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FineCharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SemesterID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.FeeID  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.FeeID  })
+        </td>
+    </tr>
+}
+
+</table>

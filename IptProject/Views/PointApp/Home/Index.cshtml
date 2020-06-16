@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Point Management System</h1>
+</div>
+
+<div>
+
+
+    <form name="login">
+        Username   <input type="text" name="userid" /><br /><br />
+        Password   <input type="password" name="pswrd" /><br /><br />
+        <input type="button" onclick="check(this.form)" value="Login" />
+        <input type="reset" value="Cancel" />
+    </form>
+    <script language="javascript">
+        function check(form)/*function to check userid & password*/ {
+            /*the following code checkes whether the entered userid and password are matching*/
+            if (form.userid.value == "Admin" && form.pswrd.value == "12345") {
+                /**/
+                @{ Response.Redirect("~/Driver/Index");}
+                /**/
+            }
+            else {
+                alert("Error Password or Username")/*displays error message*/
+            }
+        }
+    </script>
+</div>

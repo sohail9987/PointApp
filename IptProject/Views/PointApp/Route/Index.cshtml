@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PointDataAccess.Route>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add Route", "AddRoute")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PointID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteStop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteStop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RouteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RouteID })
+        </td>
+    </tr>
+}
+
+</table>
